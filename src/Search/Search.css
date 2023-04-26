@@ -1,0 +1,25 @@
+input {
+    text-align: left;
+    width: 560px;
+    height: 60px;
+    color: aliceblue;
+    background-color: black;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 0  10px  10px 0;
+    padding: 8px;
+}
+
+option {
+    width: 140px;
+    height: 300px;
+}
+
+.dropdown {
+    width: 140px;
+    height: 60px;
+    color: aliceblue;
+    background-color: black;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px 0 0 10px;
+    padding: 4px;
+}

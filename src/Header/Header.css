@@ -1,0 +1,19 @@
+.sign {
+    background-color: #D85E54;
+    color: #FFFFFF;
+    padding: 6px 18px;
+    border-radius: 100px;
+    width: 45px;
+    height: 24px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding: 40px;
+}
