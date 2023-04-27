@@ -4,11 +4,11 @@ import Globe from "react-globe.gl";
 import { useState, useEffect, useRef } from "react";
 import * as THREE from 'three'
 import axios from "axios";
-import data from "../data/world_population.json"
+import data from "../data/world_population.json";
 
 export default function Earth() {
 
-  const [places, setPlaces] = useState([]); 
+  const [labels, setLabels] = useState(); 
   // const [scroll, setScroll] = useState(0);
 
   const h = window.innerHeight;
@@ -36,7 +36,46 @@ export default function Earth() {
   //   fetch(url).then(async res => await res).then(( features ) => console.log(features));
   
   // })
-  console.log(data);
+
+  // useEffect(() => {
+  //   fetch().then((res) => res.json()).then((places) => setPlaces(places));
+  // }, [])
+  // console.log(places);
+
+  // console.log(data);
+  
+
+  const handleClick = (event, globeEl) => {
+    if(globeEl.current){
+      const latlng = globeEl.current.getCoords(event.clientX, event.clientY);
+      const lat = latlng?.lat;
+      const lng = latlng?.lng;
+      const radius = globeEl.current.opts?.cameraDistance;
+      const position = {
+        x: radius * Math.sin(lat) * Math.cos(lng),
+        y: radius * Math.sin(lat) * Math.sin(lng),
+        z: radius * Math.cos(lat)
+      };
+      globeEl.current.camera()?.position.setLength(globeEl.current.camera().position.length(position.x, position.y, position.z));
+    
+    }
+    //globeEl.current.camera().position.setLength(globeEl.current.camera().position.length() * 2);
+    
+  }
+
+  useEffect(() => {
+    const filePath = "https://tl-dev2-app-files.s3.ap-south-1.amazonaws.com/store/world_population.json"
+    fetch(filePath).then(res => res.json() ).then(({ features }) => setLabels(features))
+    // const features = data.features
+    // setLabels(features)
+  },[]) 
+
+  console.log(labels)
+  
+//   const labelsData = data.map((item) => {
+
+// });
+// console.log(labels);
 
   useEffect(() => {
     // Auto-rotate
@@ -45,6 +84,7 @@ export default function Earth() {
       globeEl.current.controls().enableZoom = false;
       globeEl.current.controls().autoRotateSpeed = 1.5;
       //globeEl.current.pointOfView({ lat: 0, lng: 0, altitude: 1.5, fov: 30 });
+      globeEl.current.pointOfView({lat: 20.5, lng: 78.9, altitude: 1.4}, 4000);
     }
 
 
@@ -85,12 +125,13 @@ export default function Earth() {
       <Globe
         ref={globeEl}
         //height={h + shiftAmmount}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+        globeImageUrl="https://tl-dev2-app-files.s3.ap-south-1.amazonaws.com/store/MicrosoftTeams-image+(15).png"
         //showAtmosphere='true'
         backgroundColor="black"
         atmosphereColor="white"
         atmosphereAltitude={0.14}
-        // labelsData={places}
+        onGlobeClick={handleClick}
+          labelLat={labels => labels.properties.latitude}
         // labelSize={d => Math.sqrt(d.properties.pop_max) * 4e-4}
         // labelDotRadius={d => Math.sqrt(d.properties.pop_max) * 4e-4}
         // labelColor={() => 'rgba(255, 165, 0, 0.75)'}
