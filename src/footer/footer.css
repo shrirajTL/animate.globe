@@ -1,0 +1,139 @@
+body {
+    background-color: black;
+}
+
+.container {
+    height: 100vh;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    color: #fff;
+    font-size: 60px;
+    font-family: "Jost";
+}
+
+.contact-text {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    color: #fff;
+}
+
+.contact a {
+    color: #fff;
+}
+
+section a {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 49px;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact p {
+    color: #E3735E;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.footer {
+    display: flex;
+    color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link .title {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF99;
+}
+
+.link,
+.support,
+.office {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 300px;
+}
+
+.link p,
+.support p,
+.office p {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    /* width: fit-content; */
+    line-height: normal;
+}
+
+.solid {
+    color: #ffffff;
+    opacity: 10%;
+}
+
+.icon {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    width: -webkit-fill-available;
+}
+
+.legal p {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: #fff;
+    opacity: 60%;
+}
+
+@media screen and (min-width: 24.375em) {
+    .legal .legal__links {
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width: 40.375em) {
+    .footer__nav>* {
+        flex: 1;
+    }
+
+    .nav__item--extra {
+        flex-grow: 2;
+    }
+
+    .footer__addr {
+        flex: 1 0px;
+    }
+
+    .footer__nav {
+        flex: 2 0px;
+    }
+}

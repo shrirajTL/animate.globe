@@ -6,9 +6,12 @@
     width: 45px;
     height: 24px;
     font-size: 14px;
+    line-height: 19px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Nunito Sans';
+    font-weight: 600;
 }
 
 .header {

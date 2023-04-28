@@ -18,12 +18,7 @@ export default function Earth() {
   let camera, renderer, scene;
   let features;
 
-  // const handleScroll = () => {
-  //   const h = window.innerHeight;
-  //   const w = window.innerWidth;
-  //   const topFactor = 1.3;
-  //   const widthFactor = 0.8;
-  //   const shiftTop = topFactor * h;
+ 
   //   const shiftWidth = widthFactor * w;
   //   const currentScrollPosition = window.scrollY;
 
@@ -84,7 +79,7 @@ export default function Earth() {
       globeEl.current.controls().enableZoom = false;
       globeEl.current.controls().autoRotateSpeed = 1.5;
       //globeEl.current.pointOfView({ lat: 0, lng: 0, altitude: 1.5, fov: 30 });
-      globeEl.current.pointOfView({lat: 20.5, lng: 78.9, altitude: 1.4}, 4000);
+      globeEl.current.pointOfView({lat: 20.5, lng: 78.9, altitude: 2.4}, 4000);
     }
 
 
@@ -124,14 +119,14 @@ export default function Earth() {
     <div>
       <Globe
         ref={globeEl}
-        //height={h + shiftAmmount}
+        height={h + shiftAmmount}
         globeImageUrl="https://tl-dev2-app-files.s3.ap-south-1.amazonaws.com/store/MicrosoftTeams-image+(15).png"
-        //showAtmosphere='true'
+        showAtmosphere="false"
         backgroundColor="black"
-        atmosphereColor="white"
+        //atmosphereColor="white"
         atmosphereAltitude={0.14}
         onGlobeClick={handleClick}
-          labelLat={labels => labels.properties.latitude}
+        labelLat={labels => labels.properties.latitude}
         // labelSize={d => Math.sqrt(d.properties.pop_max) * 4e-4}
         // labelDotRadius={d => Math.sqrt(d.properties.pop_max) * 4e-4}
         // labelColor={() => 'rgba(255, 165, 0, 0.75)'}
@@ -146,13 +141,3 @@ export default function Earth() {
     </>
   );
 }
-
-
-// useEffect(() => {
-//   fetch("../data/population.json")
-//   .then(res => res.json())
-//   .then(({ features }) => setPlaces(features));
-//   //console.log(places);
-// }, []);
-//C:\Users\Hosachiguru\gl-landing\src\data\population.json
-//src\data\population.json
