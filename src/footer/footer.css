@@ -114,26 +114,30 @@ section a {
     opacity: 60%;
 }
 
-@media screen and (min-width: 24.375em) {
-    .legal .legal__links {
-        margin-left: auto;
+/* For screens up to 768 pixels wide */
+@media screen and (max-width: 768px) {
+    .container {
+      padding: 0 40px;
     }
-}
-
-@media screen and (min-width: 40.375em) {
-    .footer__nav>* {
-        flex: 1;
+    .title {
+      font-size: 48px;
     }
-
-    .nav__item--extra {
-        flex-grow: 2;
+    .contact-text {
+      font-size: 48px;
     }
-
-    .footer__addr {
-        flex: 1 0px;
+    section a {
+      font-size: 24px;
+      line-height: 32px;
     }
-
-    .footer__nav {
-        flex: 2 0px;
+    .link,
+    .support,
+    .office {
+      width: 100%;
     }
-}
+    .link p,
+    .support p,
+    .office p {
+      font-size: 18px;
+    }
+  }
+  
